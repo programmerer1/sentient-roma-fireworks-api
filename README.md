@@ -117,7 +117,7 @@ Replace the agent with this one, another suitable one, or custom (by the way, I 
     SEARCH: "SmartWebSearcher"
 ```
 
-The BasicReasoningExecutor agent sends additional parameters that are not supported by Fireworks, so go to the file and disable these parameters by using the # sign:
+The BasicReasoningExecutor agent sends additional parameters that are not supported by Fireworks, so go to the file **ROMA/src/sentientresearchagent/hierarchical_agent_framework/agent_configs/agents.yaml** and disable these parameters by using the # sign:
 
 ```bash
   - name: "BasicReasoningExecutor"
