@@ -49,7 +49,7 @@ valid_providers = ['openai', 'anthropic', 'azure', 'custom', 'openrouter', 'fire
 **For clarity, I have also uploaded agents.yaml to this repository.**
 **Another important note**. Some core agents send additional parameters or have hardcoded model names or API URLs in their source code, which can break our requests. Therefore, we need to disable them.
 
-OpenAICustomSearcher, GeminiCustomSearcher, and ExaComprehensiveSearcher do not allow the use of FIREWORKS, so we disable them by setting enabled: false in the file **ROMA/src/sentientresearchagent/hierarchical_agent_framework/agent_configs/agents.yaml**:
+**OpenAICustomSearcher**, **GeminiCustomSearcher**, and **ExaComprehensiveSearcher** do not allow the use of FIREWORKS, so we disable them by setting enabled: false in the file **ROMA/src/sentientresearchagent/hierarchical_agent_framework/agent_configs/agents.yaml**:
 ```bash
   - name: "OpenAICustomSearcher"
     type: "custom_search"
@@ -97,7 +97,7 @@ OpenAICustomSearcher, GeminiCustomSearcher, and ExaComprehensiveSearcher do not 
     enabled: false
 ```
 
-The OpenAICustomSearcher agent is built into almost all profiles by default, so we need to go into the following files
+The **OpenAICustomSearcher** agent is built into almost all profiles by default, so we need to go into the following files
 **ROMA/src/sentientresearchagent/hierarchical_agent_framework/agent_configs/profiles/deep_research_agent.yaml
 ROMA/src/sentientresearchagent/hierarchical_agent_framework/agent_configs/profiles/crypto_analytics_agent.yaml
 ROMA/src/sentientresearchagent/hierarchical_agent_framework/agent_configs/profiles/general_agent.yaml
@@ -117,7 +117,7 @@ Replace the agent with this one, another suitable one, or custom (by the way, I 
     SEARCH: "SmartWebSearcher"
 ```
 
-The BasicReasoningExecutor agent sends additional parameters that are not supported by Fireworks, so go to the file **ROMA/src/sentientresearchagent/hierarchical_agent_framework/agent_configs/agents.yaml** and disable these parameters by using the # sign:
+The **BasicReasoningExecutor** agent sends additional parameters that are not supported by Fireworks, so go to the file **ROMA/src/sentientresearchagent/hierarchical_agent_framework/agent_configs/agents.yaml** and disable these parameters by using the # sign:
 
 ```bash
   - name: "BasicReasoningExecutor"
