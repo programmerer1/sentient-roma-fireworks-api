@@ -194,7 +194,7 @@ agents:
         - action_verb: "execute"
           task_type: "SEARCH"
       named_keys: ["SmartWebSearcher"]
-    enabled: false
+    enabled: true
 
   # =============================================================================
   # CUSTOM SEARCH AGENTS - Direct API-based search without LLM overhead
