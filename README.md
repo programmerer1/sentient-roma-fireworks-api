@@ -117,8 +117,9 @@ Replace the agent with this one, another suitable one, or custom (by the way, I 
     SEARCH: "SmartWebSearcher"
 ```
 
-The **BasicReasoningExecutor** agent sends additional parameters that are not supported by Fireworks, so go to the file **ROMA/src/sentientresearchagent/hierarchical_agent_framework/agent_configs/agents.yaml** and disable these parameters by using the # sign:
+**BasicReasoningExecutor** and **SmartWebSearcher** sends additional parameters that are not supported by Fireworks, so go to the file **ROMA/src/sentientresearchagent/hierarchical_agent_framework/agent_configs/agents.yaml** and disable these parameters by using the # sign:
 
+**BasicReasoningExecutor**:
 ```bash
   - name: "BasicReasoningExecutor"
     type: "executor"
@@ -140,6 +141,27 @@ The **BasicReasoningExecutor** agent sends additional parameters that are not su
         - action_verb: "execute"
           task_type: "THINK"
       named_keys: ["BasicReasoningExecutor"]
+    enabled: true
+```
+
+**SmartWebSearcher** - Remove WikipediaTools from **tools: ["web_search", "WikipediaTools"]**. It should look like this: **tools: ["web_search"]**:
+```bash
+  - name: "SmartWebSearcher"
+    type: "executor"
+    adapter_class: "ExecutorAdapter"
+    description: "Intelligent searcher that combines AI-powered search with Wikipedia"
+    model:
+      provider: "litellm"
+      model_id: "fireworks_ai/accounts/fireworks/models/llama4-maverick-instruct-basic"  # Switched from slow o3 model for faster search
+    # agno_params:
+    #   reasoning: true
+    prompt_source: "prompts.executor_prompts.SMART_WEB_SEARCHER_SYSTEM_MESSAGE"
+    tools: ["web_search"]
+    registration:
+      action_keys:
+        - action_verb: "execute"
+          task_type: "SEARCH"
+      named_keys: ["SmartWebSearcher"]
     enabled: true
 ```
 
