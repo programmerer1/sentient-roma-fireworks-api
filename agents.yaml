@@ -188,7 +188,7 @@ agents:
     # agno_params:
     #   reasoning: true
     prompt_source: "prompts.executor_prompts.SMART_WEB_SEARCHER_SYSTEM_MESSAGE"
-    tools: ["web_search", "WikipediaTools"]
+    tools: ["web_search"]
     registration:
       action_keys:
         - action_verb: "execute"
